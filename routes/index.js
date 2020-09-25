@@ -1,20 +1,8 @@
 const express = require('express');
-const router = express.Router();
-router.get("/api/1.0/bcms/page/homepage", (request, response) => {
-    collection.find({}).toArray((error, result) => {
-        if(error) {
-            return response.status(500).send(error);
-        }
-        response.send(result);
-    });
-});
-router.get("/api/1.0/bcms/page/homepage/id", (request, response) => {
-    collection.find({}).toArray((error, result) => {
-        if(error) {
-            return response.status(500).send(error);
-        }
-        response.send(result);
-    });
-});
-module.exports = router;
+const routes = require('./routes/index');
+const index= express();
+//app.use(BodyParser.json());
+//app.use(BodyParser.urlencoded({ extended: true }));
+app.use('/', routes);
+module.exports = index;
 
